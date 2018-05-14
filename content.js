@@ -9,12 +9,27 @@ chrome.runtime.onMessage.addListener(
 
         //gets number of loaded text-based messages
         var a = $("div.clearfix div._3058 div._aok span._3oh-").length;
-
+        var msg;
         //outputs each message to the console
         for(i = 1; i < a + 1; i++) {
-          console.log($("div.clearfix div._3058 div._aok span._3oh-").eq(-i).text() + "\n");
+          msg = $("div.clearfix div._3058 div._aok span._3oh-").eq(-i);
+          console.log(msg.text() + "\n");
+
+          var strArray = msg.text().split(" ");
+          var joinString = "";
+          for(j = 0; j < strArray.length; j++) {
+
+            if(strArray[j] === ":monkaS:") {
+              strArray[j] = "<img alt=\"monkaS\" height=\"16px\" width=\"16px\" src=\"http://i0.kym-cdn.com/entries/icons/square/000/022/713/4.png\">";
+            }
+
+            joinString += strArray[j] + " ";
+          }
+          msg.html(joinString);
+
         }
       }
+      //if the website isn't messenger.com
       else {
         console.log("oops");
       }
