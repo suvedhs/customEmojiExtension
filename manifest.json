@@ -1,6 +1,20 @@
 {
-  "name": "Getting Started Example",
+  "name": "Custom Emojis for Messenger",
   "version": "1.0",
-  "description": "Build an Extension!",
-  "manifest_version": 2
+  "description": "Make custom emojis and use them on facebook messenger!",
+  "manifest_version": 2,
+  "browser_action": {
+    "default_icon": "icon.png"
+    },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["jquery.js","content.js"]
+    }
+  ]
 }
