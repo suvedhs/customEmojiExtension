@@ -15,10 +15,10 @@ chrome.runtime.onMessage.addListener(
         for(i = 1; i < a + 1; i++) {
           //generic variable msg representing each message loaded
           msg = $("div.clearfix div._3058 div._aok span._3oh-").eq(-i);
-          console.log(msg.text() + "\n");
+          console.log(msg.html() + "\n");
 
           //splits each message into an array of words to parse
-          var strArray = msg.text().split(" ");
+          var strArray = msg.html().split(" ");
 
           //joinString is used to combine the array back into a complete string
           var joinString = "";
@@ -29,7 +29,7 @@ chrome.runtime.onMessage.addListener(
             //searches for a buzzword
             if(strArray[j] === ":monkaS:") {
               //replaces the buzzword with the HTML for an image corresponding. Must be reduced to 16 by 16.
-              strArray[j] = "<img alt=\"monkaS\" height=\"16px\" width=\"16px\" src=\"http://i0.kym-cdn.com/entries/icons/square/000/022/713/4.png\">";
+              strArray[j] = "<img class=\"_1ift\" alt=\"monkaS\" height=\"16px\" width=\"16px\" src=\"http://i0.kym-cdn.com/entries/icons/square/000/022/713/4.png\">";
             }
             //since we had split the string by spaces, we combine the array back while adding the spaces back
             joinString += strArray[j] + " ";
